@@ -1,0 +1,43 @@
+#! / bin / bash
+
+# Dapatkan komponen yang diperlukan
+pembaruan apt-get
+apt-get install xorg kubuntu-desktop tigervnc-standalone-server dbus-x11 -y
+apt-get clean
+
+# Siapkan file yang diperlukan
+mkdir ~ /.vnc
+wget https://raw.githubusercontent.com/EXALAB/Anlinux-Resources/master/Scripts/DesktopEnvironment/Heavy/KDE/Ubuntu/xstartup -P ~ /.vnc/
+wget https://raw.githubusercontent.com/EXALAB/Anlinux-Resources/master/Scripts/DesktopEnvironment/Heavy/KDE/Ubuntu/vncserver-start -P / usr / local / bin /
+wget https://raw.githubusercontent.com/EXALAB/Anlinux-Resources/master/Scripts/DesktopEnvironment/Heavy/KDE/Ubuntu/vncserver-stop -P / usr / local / bin /
+
+chmod + x ~ /.vnc/xstartup
+chmod + x / usr / local / bin / vncserver-start
+chmod + x / usr / local / bin / vncserver-stop
+
+echo  "  "
+echo  "Sekarang Anda dapat memulai vncserver dengan menjalankan vncserver-start "
+echo  "  "
+echo  " Ini akan meminta Anda memasukkan kata sandi saat pertama kali memulainya. "
+echo  "  "
+echo  " Server VNC akan dimulai pada 127.0.0.1:5901 "
+echo  "  "
+echo  " Anda dapat terhubung ke alamat ini dengan VNC Viewer yang Anda sukai "
+echo  "  "
+echo  " Hubungkan ke alamat ini akan membuka jendela dengan KDE Desktop Environment "
+echo  "  "
+echo  "  "
+echo  "  "
+echo  " Menjalankan vncserver-start "
+echo  "  "
+echo  "  "
+echo  "  "
+echo  " Untuk Membunuh Server VNC, jalankan saja vncserver-stop "
+echo  "  "
+echo  "  "
+echo  "  "
+
+echo  " export DISPLAY = " : 1 " "  >> / etc / profile
+sumber / etc / profile
+
+vncserver-start
